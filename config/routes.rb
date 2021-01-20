@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :threds
   delete 'threds/:id' => 'threds#destroy'
+
+  resources :columns
   root to: "threds#index"
 end
