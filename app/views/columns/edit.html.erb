@@ -1,0 +1,9 @@
+<h1>コラム編集ページ</h1>
+<%= @column.title%>
+<%= @column.text %>
+
+<%= form_with model:@column, url: column_path, local: true do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :text %>
+  <%= f.submit '変更する' %>
+<% end %>

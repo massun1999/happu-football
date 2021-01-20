@@ -1,2 +1,9 @@
 <h1>コラム一覧</h1>
+<% @columns.each do |column|%>
+  <%= column.title %>
+  <%= column.text%>
+  <%= link_to '編集', edit_column_path(column) %>
+  <%= link_to '削除', column_path(column) %>
+<% end %>
+<%= link_to 'コラム投稿', new_column_path %>
 <%= link_to 'トップページ', root_path %>

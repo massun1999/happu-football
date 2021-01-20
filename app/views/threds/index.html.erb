@@ -19,5 +19,9 @@
 
 <div class="columns">
   <%= link_to 'コラム一覧', columns_path %>
+  <% @columns.each do |column|%>
+  <%= column.title %>
+  <%= column.text%>
+<% end %>
 </div>
 
