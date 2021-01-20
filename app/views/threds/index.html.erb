@@ -9,3 +9,9 @@
   <%= link_to 'ログイン', new_user_session_path %>
 <% end %>
 
+<% @threds.each do |thred|%>
+  <%= thred.content %>
+<% end %>
+
+<%= link_to '新規投稿', new_thred_path %>
+

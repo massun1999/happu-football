@@ -1,0 +1,13 @@
+<h1>新規投稿</h1>
+
+<div class="new-main">
+  <%= form_with model:@thred, url: threds_path, local: true do |f| %>
+    <div class="form-wrap">
+      <%= f.text_field :content, placeholder: "テキストを入力してください"%>
+    </div>
+
+    <%= f.submit 'POST'%>
+  <% end %>
+
+  <%= link_to 'トップへ戻る', root_path %>
+</div>
