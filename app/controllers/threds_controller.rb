@@ -16,6 +16,33 @@ class ThredsController < ApplicationController
     end
   end
 
+  def edit
+    @thred = Thred.find(params[:id])
+  end
+
+  def update
+    @thred = Thred.find(params[:id])
+    if @thred.update(thred_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def show
+    @thred = Thred.find(params[:id])
+  end
+
+
+  def destroy
+    @thred = Thred.find(params[:id])
+    if @thred.destroy
+      redirect_to root_path
+    else
+      render :root_path
+    end
+  end
+
   private
 
   def thred_params

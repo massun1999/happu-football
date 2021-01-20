@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get 'threds/index'
 
   resources :threds
+  delete 'threds/:id' => 'threds#destroy'
   root to: "threds#index"
 end

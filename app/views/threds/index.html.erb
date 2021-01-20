@@ -11,6 +11,8 @@
 
 <% @threds.each do |thred|%>
   <%= thred.content %>
+  <%= link_to '編集', edit_thred_path(thred) %>
+  <%= link_to '削除', thred_path(thred) %>
 <% end %>
 
 <%= link_to '新規投稿', new_thred_path %>
