@@ -1,6 +1,7 @@
 class ThredsController < ApplicationController
   def index
     @threds = Thred.all
+    @columns = Column.all
   end
 
   def new

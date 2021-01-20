@@ -17,3 +17,11 @@
 
 <%= link_to '新規投稿', new_thred_path %>
 
+<div class="columns">
+  <%= link_to 'コラム一覧', columns_path %>
+  <% @columns.each do |column|%>
+  <%= column.title %>
+  <%= column.text%>
+<% end %>
+</div>
+
