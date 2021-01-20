@@ -1,0 +1,8 @@
+<h1>thred edit</h1>
+<%= @thred.content %>
+<%= form_with model:@thred, url: thred_path, local: true do |f| %>
+  <%= f.text_area :content, placeholder:"コンテンツ（必須 40文字まで)", maxlength:"40" %>
+  <%= f.submit "変更する" ,class:"sell-btn" %>
+<% end %>
+
+ <%= link_to 'トップへ戻る', root_path %>
