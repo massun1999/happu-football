@@ -1,0 +1,23 @@
+<h1>八風中学校サッカー部 スケジュール</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>日</th>
+      <th>行事</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.date %></td>
+        <td><%= schedule.event %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= form_with url: import_schedules_path, local: true do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit %>
+<% end %>

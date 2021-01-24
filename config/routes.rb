@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   resources :columns
   root to: "threds#index"
+
+  resources :schedules do
+    collection do
+      post :import
+    end
+  end
 end

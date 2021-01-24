@@ -37,8 +37,8 @@
 
 | Column   | Type               | option     |
 |----------|--------------------|------------|
-| date     | date               | null;false |
-| image    | ActiveStorageで実装 | null:false |
+| date     | string             | null:false |
+| event    | string             | null:false |
 
 ### association
 
