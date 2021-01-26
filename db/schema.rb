@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_01_24_010900) do
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "year"
+    t.string "month"
     t.string "date"
     t.string "event"
     t.datetime "created_at", precision: 6, null: false

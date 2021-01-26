@@ -1,6 +1,8 @@
 <h1>八風中学校サッカー部 スケジュール</h1>
 
 <table>
+      <p><%= @schedule.year %><span>年度</span></p>
+      <p><%= @schedule.month %><span>月</span></p>
   <thead>
     <tr>
       <th>日</th>
@@ -8,8 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @schedules.each do |schedule| %>
+    <% @schedules.reverse_each do |schedule| %>
       <tr>
+        <td><%= schedule.year %></td>
+        <td><%= schedule.month %></td>
         <td><%= schedule.date %></td>
         <td><%= schedule.event %></td>
       </tr>
