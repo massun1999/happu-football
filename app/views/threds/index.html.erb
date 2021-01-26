@@ -1,21 +1,31 @@
-<h1>Threds#index</h1>
-<% if user_signed_in? %>
-  <strong><%= link_to current_user.name %></strong>
-    <%= link_to 'プロフィール変更', edit_user_registration_path %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <p>Find me in app/views/threds/index.html.erb</p>
-<% else %>
-   <%= link_to 'サインアップ', new_user_registration_path %>
-  <%= link_to 'ログイン', new_user_session_path %>
-<% end %>
+<%= render "shared/header" %>
 
-<% @threds.each do |thred|%>
-  <%= thred.content %>
-  <%= link_to '編集', edit_thred_path(thred) %>
-  <%= link_to '削除', thred_path(thred) %>
-<% end %>
+<div class="main">
+  <div class="top-image-wrapper">
+    <div class="image-wrap">
+      <%= image_tag "top-image01.jpg" , :size => '1300x500'%>
+    </div>
+  </div>
 
-<%= link_to '新規投稿', new_thred_path %>
+  <section>
+    <div class="contents-wrap">
+      <div class="threds">
+        <% @threds.each do |thred|%>
+          <%= thred.content %>
+          <%= link_to '編集', edit_thred_path(thred) %>
+          <%= link_to '削除', thred_path(thred) %>
+        <% end %>
+        <%= link_to '新規投稿', new_thred_path %>
+      </div>
+      <div class="columns">
+      <div class="columns">
+        <%= link_to 'コラム一覧', columns_path %>
+          <% @columns.each do |column|%>
+          <%= column.title %>
+          <%= column.text%>
+        <% end %>
+      </div>
+    </div>
 
 <div class="columns">
   <%= link_to 'コラム一覧', columns_path %>
@@ -24,4 +34,6 @@
   <%= column.text%>
 <% end %>
 </div>
+
+
 
