@@ -1,32 +1,36 @@
-<h1>八風中学校サッカー部 スケジュール</h1>
+<%= render "shared/header" %>
 
-<table>
+<div class="main">
+  <h1>八風中学校サッカー部 スケジュール</h1>
+
+  <%= form_with url: import_schedules_path, local: true do |f| %>
+    <%= f.file_field :file %>
+    <%= f.submit %>
+  <% end %>
+  
+  <table>
+    <div class="schedule-wrap">
       <p><%= @schedule.year %><span>年度</span></p>
-      <p><%= @schedule.month %><span>月</span></p>
-  <thead>
-    <tr>
-      <th>日</th>
-      <th>行事</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @schedules.reverse_each do |schedule| %>
+      <p><%= @schedule.month %><span>月のスケジュール</span></p>
+    </div>
+    <thead>
       <tr>
-        <td><%= schedule.year %></td>
-        <td><%= schedule.month %></td>
-        <td><%= schedule.date %></td>
-        <td><%= schedule.event %></td>
+        <th>日</th>
+        <th>行事</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @schedules.reverse_each do |schedule| %>
+        <tr>
+          <td><%= schedule.date %></td>
+          <td><%= schedule.event %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= form_with url: import_schedules_path, local: true do |f| %>
-  <%= f.file_field :file %>
-  <%= f.submit %>
 
-<% end %>
 
-<% end %>
 
 <%= link_to 'トップページ', root_path %>

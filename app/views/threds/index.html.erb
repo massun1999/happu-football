@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
 
-<div class="main">
+<div class="thred-main">
   <div class="top-image-wrapper">
-    <div class="image-wrap">
+    <div class="slider">
       <%= image_tag "top-image01.jpg" , :size => '1300x500'%>
     </div>
   </div>
@@ -27,12 +27,6 @@
       </div>
     </div>
 
-<div class="columns">
-  <%= link_to 'コラム一覧', columns_path %>
-  <% @columns.each do |column|%>
-  <%= column.title %>
-  <%= column.text%>
-<% end %>
 
 <%= link_to 'スケジュール', schedules_path %>
 </div>
