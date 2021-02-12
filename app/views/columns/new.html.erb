@@ -1,16 +1,17 @@
 <h1>コラム投稿ページ</h1>
 <div class="new-main">
-  <%= form_with model:@column, url: columns_path, local: true do |f| %>
-    <div class="form-wrap">
-      <%= f.text_field :title, placeholder: "テキストを入力してください"%>
-    </div>
 
-    <div class="form-wrap">
-      <%= f.text_area :text, placeholder: "テキストを入力してください"%>
-    </div>
-
-    <%= f.submit 'POST'%>
-  <% end %>
+  <div class="form-wrapper">
+    <%= form_with model:@column, url: columns_path, local: true do |f| %>
+      <div class="form-wrap">
+        <%= f.text_field :title, placeholder: "テキストを入力してください"%>
+      </div>
+      <div class="form-wrap">
+        <%= f.text_area :text, placeholder: "テキストを入力してください"%>
+      </div>
+      <%= f.submit 'POST'%>
+    <% end %>
+  </div>
 
   <%= link_to 'トップへ戻る', root_path %>
 </div>
