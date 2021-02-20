@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_010900) do
     t.string "month"
     t.string "date"
     t.string "event"
+    t.string "day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
