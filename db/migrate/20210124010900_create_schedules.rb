@@ -5,7 +5,7 @@ class CreateSchedules < ActiveRecord::Migration[6.0]
       t.string :month
       t.string :date
       t.string :event
-
+      t.string :day
       t.timestamps
     end
   end
