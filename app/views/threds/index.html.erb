@@ -3,7 +3,6 @@
 <div class="thred-main">
   <div class="top-image-wrapper">
     <div class="slider">
-      <%= image_tag "top-image01.jpg" , :size => '1300x500'%>
     </div>
   </div>
 
@@ -26,6 +25,32 @@
         <% end %>
       </div>
     </div>
+
+    <table>
+    <div class="schedule-wrap">
+    <% if @schedule.blank? %>
+      <p>スケジュールが登録されていません</p>
+    <% else %>
+      <p><%= @schedule.year %><span>年度</span></p>
+      <p><%= @month.month %><span>月のスケジュール</span></p>
+    <%end%>
+    </div>
+      <thead>
+        <tr>
+          <th>日</th>
+          <th>行事</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @schedules.reverse_each do |schedule| %>
+        <tr>
+          <td><%= schedule.date %></td>
+          <td><%= schedule.day %></td>
+          <td><%= schedule.event %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
 <%= link_to 'スケジュール', schedules_path %>
