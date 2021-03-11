@@ -1,41 +1,58 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <h1>八風中学校サッカー部 スケジュール</h1>
 
-  <%= form_with url: import_schedules_path, local: true do |f| %>
-    <%= f.file_field :file %>
-    <%= f.submit %>
-  <% end %>
-  
-  <table>
-    <div class="schedule-wrap">
-    <% if @schedule.blank? %>
-      <p>スケジュールが登録されていません</p>
-    <% else %>
-      <p><%= @schedule.year %><span>年度</span></p>
-      <p><%= @month.month %><span>月のスケジュール</span></p>
-    <%end%>
+  <section id="mv">
+    <div class="inner">
+      <div class="mv">
+        <%= image_tag "mv_1.jpg", class: "mv-img"%>
+      </div>
     </div>
-      <thead>
-        <tr>
-          <th>日</th>
-          <th>行事</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @schedules.reverse_each do |schedule| %>
-        <tr>
-          <td><%= schedule.date %></td>
-          <td><%= schedule.day %></td>
-          <td><%= schedule.event %></td>
-        </tr>
+  </section>
+
+  
+  
+  <section id="schedule">
+    <div class="inner">
+      <h1>Schedule<br /><span class="title-rb">月間スケジュール</span></h1>
+      <% if user_signed_in? %>
+        <%= form_with url: import_schedules_path, local: true do |f| %>
+          <%= f.file_field :file %>
+          <%= f.submit %>
+        <% end %>
       <% end %>
-    </tbody>
-  </table>
+        <table>
+          <% if @schedule.blank? %>
+            <p>スケジュールが登録されていません</p>
+          <% else %>
+            <h2>
+              <%= @schedule.year %><span>年度</span>
+              <%= @month.month %><span>月のスケジュール</span>
+            </h2>
+          <%end%>
+          </div>
+            <thead>
+              <tr>
+                <th class="days">日</th>
+                <th class="days">曜日</th>
+                <th class="event">行事</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @schedules.reverse_each do |schedule| %>
+              <tr>
+                <td class="day"><%= schedule.date %></td>
+                <td class="day"><%= schedule.day %></td>
+                <td class="event"><%= schedule.event %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>  
+    </div>
+  </section>
 </div>
 
+<%= render "shared/footer" %>
 
 
 
-<%= link_to 'トップページ', root_path %>

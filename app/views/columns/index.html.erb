@@ -1,22 +1,38 @@
 <%= render "shared/header" %>
-
-<div class="column-main">
-  <div class="top-image">
-    <div class="image-wrap">
-      <%#= image_tag "top-image01.jpg" , :size => '1300x500'%>
-      <h1 class="column-title">コラム</h1>
+<!--thred.cssを使用-->
+<div class="thred-main">
+  <section id="mv">
+    <div class="inner">
+      <div class="mv">
+        <%= image_tag "mv_1.jpg", class: "mv-img"%>
+      </div>
     </div>
-  </div>
-  <div class="column-contents">
-    <% @columns.each do |column|%>
-      <%= column.title %>
-      <%= column.text%>
-      <%= link_to '編集', edit_column_path(column) %>
-      <%= link_to '削除', column_path(column) %>
-    <% end %>
-    <%= link_to 'コラム投稿', new_column_path %>
-    <%= link_to 'トップページ', root_path %>
-  </div>
+  </section>
+
+  <section id="columns">
+    <div class="inner">
+      <h1>Column<span class="title-rb">コラム</span></h1>
+      <div class="column">
+          <% if user_signed_in? %>
+            <%= link_to '新規投稿', new_column_path %>
+          <% end %>
+        <% @columns.each do |column| %>
+           <ul>
+              <li>
+                <%= link_to(column_path(column.id)) do %>
+                  <span class="column-title"><%= column.title%></span><br>
+                  <span class="colmun-text"><%= column.created_at.strftime('%m/%d')%></span>
+                  <span class="column-text"><%= column.text %></span>
+                <% end %>
+              </li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </section>
 </div>
+
+
+<%= render "shared/footer" %>
 
 

@@ -1,0 +1,52 @@
+.show-main{
+  padding: 60px 0;
+  width: 70%;
+  min-height: calc(100vh - 300px);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.show_title{
+  font-size: 28px;
+}
+
+.show_content{
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.show_content{
+  position: relative;
+  bottom: 0;
+}
+
+/*新規投稿ページ*/
+.title_place{
+  width: 70%;
+  height: 30px;
+  max-width: 500px;
+  padding: 20px;
+  margin-bottom: 60px;
+}
+
+.content_place{
+  width: 70%;
+  max-width: 500px;
+  padding: 20px;
+  min-height: 300px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  width: 150px;
+  height: 30px;
+  margin: 0 0 20px;
+  background-color: #3eb33e;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+

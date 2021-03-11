@@ -1,6 +1,6 @@
 class ThredsController < ApplicationController
   def index
-    @threds = Thred.last(3)
+    @threds = Thred.all
     @columns = Column.last(3)
     @schedule = Schedule.where(['year LIKE ?', "%#{20}%"]).last
     @month = Schedule.where.not(month: "-").last

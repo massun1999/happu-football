@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'threds/index'
+  get 'top/index'
 
   resources :threds
   delete 'threds/:id' => 'threds#destroy'
 
   resources :columns
-  root to: "threds#index"
+  root to: "top#index"
 
   resources :schedules do
     collection do

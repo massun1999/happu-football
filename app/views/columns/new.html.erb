@@ -1,18 +1,21 @@
-<h1>コラム投稿ページ</h1>
-<div class="new-main">
-
-  <div class="form-wrapper">
-    <%= form_with model:@column, url: columns_path, local: true do |f| %>
-      <div class="form-wrap">
-        <%= f.text_field :title, placeholder: "テキストを入力してください"%>
-      </div>
-      <div class="form-wrap">
-        <%= f.text_area :text, placeholder: "テキストを入力してください"%>
-      </div>
-      <%= f.submit 'POST'%>
-    <% end %>
+<%= render "shared/header" %>
+<!--show.cssを使用-->
+<section>
+  <div class="inner">
+    <div class="show-main">
+      <h1 class="show_title">コラム投稿ページ</h1>
+      <%= form_with model:@column, url: columns_path, local: true do |f| %>
+        <div class="form-wrap">
+          <%= f.text_field :title, placeholder: "タイトル", class: "title_place"%>
+        </div>
+        <div class="form-wrap">
+          <%= f.text_area :text, placeholder: "テキストを入力してください", class:"content_place"%>
+        </div>
+        <%= f.submit 'POST', class: "btn"%>
+      <% end %>
+      <%= link_to 'トップへ戻る', root_path %>
+    </div>
   </div>
+</section>
 
-  <%= link_to 'トップへ戻る', root_path %>
-</div>
-<%= link_to 'トップ', root_path %>
+<%= render "shared/footer" %>

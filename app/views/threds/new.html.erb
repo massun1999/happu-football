@@ -1,16 +1,21 @@
-<h1>新規投稿</h1>
-
-<div class="new-main">
-  <%= form_with model:@thred, url: threds_path, local: true do |f| %>
-    <div class="form-wrap">
-      <%= f.label :title%><br />
-      <%= f.text_field :title, placeholder: "tatleを入力してください"%><br />
-      <%= f.text_field :content, placeholder: "テキストを入力してください"%>
+<%= render "shared/header" %>
+<!--show.cssを使用-->
+<section>
+  <div class="inner">
+    <div class="show-main">
+      <h1 class="show_title">掲示板投稿ページ</h1>
+      <%= form_with model:@thred, url: threds_path, local: true do |f| %>
+        <div class="form-wrap">
+          <%= f.text_field :title, placeholder: "タイトル", class: "title_place"%>
+        </div>
+        <div class="form-wrap">
+          <%= f.text_area :text, placeholder: "テキストを入力してください", class:"content_place"%>
+        </div>
+        <%= f.submit 'POST', class: "btn"%>
+      <% end %>
+      <%= link_to 'トップへ戻る', root_path %>
     </div>
+  </div>
+</section>
 
-    <%= f.submit 'POST'%>
-  <% end %>
-
-  <%= link_to 'トップへ戻る', root_path %>
-
-</div>
+<%= render "shared/footer" %>

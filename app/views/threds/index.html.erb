@@ -13,8 +13,7 @@
     <div class="inner">
       <h1>News<span class="title-rb">掲示板</span></h1>
       <div class="news-wrap">
-        <h2><span class="text-white">最新のニュース</span></h2>
-        <div class="threds">
+        <div class="threds-index">
           <% if user_signed_in? %>
             <%= link_to '新規投稿', new_thred_path , class:"new-btn"%>
           <% end %>
@@ -34,63 +33,6 @@
             </ul>
           <% end %>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="schedule">
-    <div class="inner">
-      <h1>Schedule<br /><span class="title-rb">月間スケジュール</span></h1>
-        <table>
-          <% if @schedule.blank? %>
-            <p>スケジュールが登録されていません</p>
-          <% else %>
-            <h2>
-              <%= @schedule.year %><span>年度</span>
-              <%= @month.month %><span>月のスケジュール</span>
-            </h2>
-          <%end%>
-          </div>
-            <thead>
-              <tr>
-                <th class="days">日</th>
-                <th class="days">曜日</th>
-                <th class="event">行事</th>
-              </tr>
-            </thead>
-            <tbody>
-            <% @schedules.reverse_each do |schedule| %>
-              <tr>
-                <td class="day"><%= schedule.date %></td>
-                <td class="day"><%= schedule.day %></td>
-                <td class="event"><%= schedule.event %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>  
-        <% if user_signed_in? %>
-          <%= link_to 'スケジュール更新', schedules_path, class: "schedule-btn"%> 
-        <%end%>
-    </div>
-  </section>
-  <section id="columns">
-    <div class="inner">
-      <h1>Column<span class="title-rb">コラム</span></h1>
-      <div class="column">
-          <% if user_signed_in? %>
-            <%= link_to '新規投稿', new_column_path %>
-          <% end %>
-        <% @columns.each do |column| %>
-           <ul>
-              <li>
-                <%= link_to(column_path(column.id)) do %>
-                  <span class="column-title"><%= column.title%></span><br>
-                  <span class="colmun-text"><%= column.created_at.strftime('%m/%d')%></span>
-                  <span class="column-text"><%= column.text %></span>
-                <% end %>
-              </li>
-            </ul>
-        <% end %>
       </div>
     </div>
   </section>
