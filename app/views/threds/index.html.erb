@@ -1,35 +1,42 @@
 <%= render "shared/header" %>
 
 <div class="thred-main">
-  <div class="top-image-wrapper">
-    <div class="slider">
-      <%= image_tag "top-image01.jpg" , :size => '1300x500'%>
-    </div>
-  </div>
-
-  <section>
-    <div class="contents-wrap">
-      <div class="threds">
-        <% @threds.each do |thred|%>
-          <%= thred.content %>
-          <%= link_to '編集', edit_thred_path(thred) %>
-          <%= link_to '削除', thred_path(thred) %>
-        <% end %>
-        <%= link_to '新規投稿', new_thred_path %>
-      </div>
-      <div class="columns">
-      <div class="columns">
-        <%= link_to 'コラム一覧', columns_path %>
-          <% @columns.each do |column|%>
-          <%= column.title %>
-          <%= column.text%>
-        <% end %>
+  <section id="mv">
+    <div class="inner">
+      <div class="mv">
+        <%= image_tag "mv_1.jpg", class: "mv-img"%>
       </div>
     </div>
+  </section>
 
-
-<%= link_to 'スケジュール', schedules_path %>
+  <section id="news">
+    <div class="inner">
+      <h1>News<span class="title-rb">掲示板</span></h1>
+      <div class="news-wrap">
+        <div class="threds-index">
+          <% if user_signed_in? %>
+            <%= link_to '新規投稿', new_thred_path , class:"new-btn"%>
+          <% end %>
+            <% @threds.each do |thred|%>
+            <ul>
+              <li>
+                <%= link_to(thred_path(thred.id)) do %>
+                  <span class="thred-title"><%= thred.title%></span><br>
+                  <span class="thred-content"><%= thred.created_at.strftime('%m/%d')%></span>
+                  <span class="thred-content"><%= thred.content %></span>
+                <% end %>
+                <% if user_signed_in? %>
+                  <%= link_to '編集', edit_thred_path(thred) %>
+                  <%= link_to '削除', thred_path(thred) %>
+                <%end%>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 
-
+<%= render "shared/footer" %>

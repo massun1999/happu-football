@@ -1,3 +1,24 @@
-<%= @column.title %>
-<%= @column.text %>
-<%= link_to '削除する', column_path, method: :delete %>
+<%= render "shared/header" %>
+
+<section>
+  <div class="inner">
+    <div class="show-main">
+      <h1 class="show_title"><%= @column.title %></h1>
+      <div class="show_content">
+        <%= @column.text %>
+        <p class="thred-content"><%= @column.created_at.strftime('%m/%d')%></p>
+      </div>
+      
+      <% if user_signed_in? %>
+        <div>
+          <%= link_to '編集', edit_column_path(@column) %>
+          <%= link_to '削除', column_path(@column), method: :delete %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<section>
+
+
+
+<%= render "shared/footer" %>

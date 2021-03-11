@@ -1,0 +1,41 @@
+header{
+  width: 100%;
+  background-color: #3889c8;
+}
+
+.header-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  height: 120px;
+  padding: 0 20px;
+}
+
+.logo-img{
+  height: 100%;
+}
+
+.top-menu {
+  align-items: center;
+  display: flex;
+}
+
+.menu-lists{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.menu-list{
+  list-style: none;
+  padding: 0 15px;
+}
+
+.menu-list a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
