@@ -1,7 +1,7 @@
 class ThredsController < ApplicationController
   def index
-    @threds = Thred.all
-    @columns = Column.all
+    @threds = Thred.last(3)
+    @columns = Column.last(3)
     @schedule = Schedule.where(['year LIKE ?', "%#{20}%"]).last
     @month = Schedule.where.not(month: "-").last
     @schedules = Schedule.order(created_at: :desc).limit(31)
@@ -50,6 +50,6 @@ class ThredsController < ApplicationController
   private
 
   def thred_params
-    params.require(:thred).permit(:content).merge(user_id: current_user.id)
+    params.require(:thred).permit(:title,:content,:user_id).merge(user_id: current_user.id)
   end
 end

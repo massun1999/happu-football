@@ -1,60 +1,100 @@
 <%= render "shared/header" %>
 
 <div class="thred-main">
-  <div class="top-image-wrapper">
-    <div class="slider">
-    </div>
-  </div>
-
-  <section>
-    <div class="contents-wrap">
-      <div class="threds">
-        <% @threds.each do |thred|%>
-          <%= thred.content %>
-          <%= link_to '編集', edit_thred_path(thred) %>
-          <%= link_to '削除', thred_path(thred) %>
-        <% end %>
-        <%= link_to '新規投稿', new_thred_path %>
-      </div>
-      <div class="columns">
-      <div class="columns">
-        <%= link_to 'コラム一覧', columns_path %>
-          <% @columns.each do |column|%>
-          <%= column.title %>
-          <%= column.text%>
-        <% end %>
+  <section id="mv">
+    <div class="inner">
+      <div class="mv">
+        <%= image_tag "mv_1.jpg", class: "mv-img"%>
       </div>
     </div>
+  </section>
 
-    <table>
-    <div class="schedule-wrap">
-    <% if @schedule.blank? %>
-      <p>スケジュールが登録されていません</p>
-    <% else %>
-      <p><%= @schedule.year %><span>年度</span></p>
-      <p><%= @month.month %><span>月のスケジュール</span></p>
-    <%end%>
+  <section id="news">
+    <div class="inner">
+      <h1>News<span class="title-rb">掲示板</span></h1>
+      <div class="news-wrap">
+        <h2><span class="text-white">最新のニュース</span></h2>
+        <div class="threds">
+          <% if user_signed_in? %>
+            <%= link_to '新規投稿', new_thred_path , class:"new-btn"%>
+          <% end %>
+            <% @threds.each do |thred|%>
+            <ul>
+              <li>
+                <%= link_to(thred_path(thred.id)) do %>
+                  <span class="thred-title"><%= thred.title%></span><br>
+                  <span class="thred-content"><%= thred.created_at.strftime('%m/%d')%></span>
+                  <span class="thred-content"><%= thred.content %></span>
+                <% end %>
+                <% if user_signed_in? %>
+                  <%= link_to '編集', edit_thred_path(thred) %>
+                  <%= link_to '削除', thred_path(thred) %>
+                <%end%>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
     </div>
-      <thead>
-        <tr>
-          <th>日</th>
-          <th>行事</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @schedules.reverse_each do |schedule| %>
-        <tr>
-          <td><%= schedule.date %></td>
-          <td><%= schedule.day %></td>
-          <td><%= schedule.event %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  </section>
 
-
-<%= link_to 'スケジュール', schedules_path %>
+  <section id="schedule">
+    <div class="inner">
+      <h1>Schedule<br /><span class="title-rb">月間スケジュール</span></h1>
+        <table>
+          <% if @schedule.blank? %>
+            <p>スケジュールが登録されていません</p>
+          <% else %>
+            <h2>
+              <%= @schedule.year %><span>年度</span>
+              <%= @month.month %><span>月のスケジュール</span>
+            </h2>
+          <%end%>
+          </div>
+            <thead>
+              <tr>
+                <th class="days">日</th>
+                <th class="days">曜日</th>
+                <th class="event">行事</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @schedules.reverse_each do |schedule| %>
+              <tr>
+                <td class="day"><%= schedule.date %></td>
+                <td class="day"><%= schedule.day %></td>
+                <td class="event"><%= schedule.event %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>  
+        <% if user_signed_in? %>
+          <%= link_to 'スケジュール更新', schedules_path, class: "schedule-btn"%> 
+        <%end%>
+    </div>
+  </section>
+  <section id="columns">
+    <div class="inner">
+      <h1>Column<span class="title-rb">コラム</span></h1>
+      <div class="column">
+          <% if user_signed_in? %>
+            <%= link_to '新規投稿', new_column_path %>
+          <% end %>
+        <% @columns.each do |column| %>
+           <ul>
+              <li>
+                <%= link_to(column_path(column.id)) do %>
+                  <span class="column-title"><%= column.title%></span><br>
+                  <span class="colmun-text"><%= column.created_at.strftime('%m/%d')%></span>
+                  <span class="column-text"><%= column.text %></span>
+                <% end %>
+              </li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </section>
 </div>
 
 
-
+<%= render "shared/footer" %>

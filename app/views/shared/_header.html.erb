@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <h1 class="logo">
       <%= link_to root_path do%>
-        <%= image_tag "happulogo.png"%>
+        <%= image_tag "happulogo.png", class: "logo-img"%>
       <% end %>
     </h1>
     <div class="top-menu">
@@ -10,6 +10,9 @@
         <li class="menu-list"><%= link_to '月間スケジュール', schedules_path%></li>
         <!--<li class="menu-list"><%= link_to 'スレッド', threds_path %></li>-->
         <li class="menu-list"><%= link_to 'コラム', columns_path %></li>
+        <% if user_signed_in? %>
+          <li class="menu-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
+        <% end %>
       </div>
     </div>
   </div>
