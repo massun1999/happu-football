@@ -1,4 +1,5 @@
 class ColumnsController < ApplicationController
+  before_action :set_column, only: [:edit, :update, :show, :destroy]
   def index
     @columns = Column.all
   end
@@ -17,11 +18,9 @@ class ColumnsController < ApplicationController
   end
 
   def edit
-    @column = Column.find(params[:id])
   end
 
   def update
-    @column = Column.find(params[:id])
     if @column.update(column_params)
       redirect_to root_path
     else
@@ -30,12 +29,10 @@ class ColumnsController < ApplicationController
   end
 
   def show
-    @column = Column.find(params[:id])
   end
 
 
   def destroy
-    @column = Column.find(params[:id])
     if @column.destroy
       redirect_to root_path
     else
@@ -47,5 +44,9 @@ class ColumnsController < ApplicationController
 
   def column_params
     params.require(:column).permit(:title, :text).merge(user_id: current_user.id)
+  end
+
+  def set_column
+    @column = Column.find(params[:id])
   end
 end

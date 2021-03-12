@@ -1,4 +1,5 @@
 class ThredsController < ApplicationController
+  before_action :set_thred, only: [:edit, :update, :show, :destroy]
   def index
     @threds = Thred.all
     @columns = Column.last(3)
@@ -21,11 +22,9 @@ class ThredsController < ApplicationController
   end
 
   def edit
-    @thred = Thred.find(params[:id])
   end
 
   def update
-    @thred = Thred.find(params[:id])
     if @thred.update(thred_params)
       redirect_to root_path
     else
@@ -34,12 +33,10 @@ class ThredsController < ApplicationController
   end
 
   def show
-    @thred = Thred.find(params[:id])
   end
 
 
   def destroy
-    @thred = Thred.find(params[:id])
     if @thred.destroy
       redirect_to root_path
     else
@@ -51,5 +48,9 @@ class ThredsController < ApplicationController
 
   def thred_params
     params.require(:thred).permit(:title,:content,:user_id).merge(user_id: current_user.id)
+  end
+
+  def set_thred
+    @thred = Thred.find(params[:id])
   end
 end
