@@ -6,8 +6,13 @@ class SchedulesController < ApplicationController
   end
 
   def import
-    Schedule.import(params[:file])
-    redirect_to root_path
+    @schedule = params[:file]
+    if @schedule
+      Schedule.import(params[:file])
+    else
+      redirect_to "/schedules"
+      flash.now[:alert] = 'メッセージを入力してください。'
+    end
   end
 
 end

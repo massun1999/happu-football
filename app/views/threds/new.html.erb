@@ -5,6 +5,7 @@
 <section>
   <div class="inner">
     <div class="show-main">
+    <%= render 'shared/error', model: @thred, class:'error' %>
       <h1 class="show_title">掲示板投稿ページ</h1>
       <%= form_with model:@thred, url: threds_path, local: true do |f| %>
         <div class="form-wrap">
