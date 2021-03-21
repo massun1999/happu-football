@@ -7,6 +7,4 @@ class Schedule < ApplicationRecord
       end
   end
 
-  validates :file, presence:true
-
 end
