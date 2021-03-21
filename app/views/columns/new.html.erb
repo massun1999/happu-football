@@ -5,6 +5,7 @@
 <section>
   <div class="inner">
     <div class="show-main">
+    <%= render 'shared/error', model: @column, class:'error' %>
       <h1 class="show_title">コラム投稿ページ</h1>
       <%= form_with model:@column, url: columns_path, local: true do |f| %>
         <div class="form-wrap">

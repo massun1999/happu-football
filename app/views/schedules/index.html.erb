@@ -17,6 +17,7 @@
   <section id="schedule">
     <div class="inner">
       <h1>Schedule<br /><span class="title-rb">月間スケジュール</span></h1>
+      <%#= render 'shared/error', model: , class:'error' %>
       <% if user_signed_in? %>
         <%= form_with url: import_schedules_path, local: true do |f| %>
           <%= f.file_field :file %>
