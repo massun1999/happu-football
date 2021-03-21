@@ -22,9 +22,9 @@
            <ul>
               <li>
                 <%= link_to(column_path(column.id)) do %>
-                  <span class="column-title"><%= column.title%></span><br>
-                  <span class="colmun-text"><%= column.created_at.strftime('%m/%d')%></span>
-                  <span class="column-text"><%= column.text %></span>
+                  <span class="column-title"><%= column.title%></span>
+                  <span class="date"><%= column.created_at.strftime('%m/%d')%></span>
+                  <span class="column-text"><%= simple_format(column.text) %></span>
                 <% end %>
               </li>
             </ul>

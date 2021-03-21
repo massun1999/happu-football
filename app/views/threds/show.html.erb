@@ -5,8 +5,8 @@
     <div class="show-main">
       <h1 class="show_title"><%= @thred.title %></h1>
       <div class="show_content">
-        <%= @thred.content %>
-        <p class="thred-content"><%= @thred.created_at.strftime('%m/%d')%></p>
+        <%= simple_format(@thred.content) %>
+        <p class="date"><%= @thred.created_at.strftime('%m/%d')%></p>
       </div>
       
       <% if user_signed_in? %>

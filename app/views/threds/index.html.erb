@@ -23,9 +23,9 @@
             <ul>
               <li>
                 <%= link_to(thred_path(thred.id)) do %>
-                  <span class="thred-title"><%= thred.title%></span><br>
-                  <span class="thred-content"><%= thred.created_at.strftime('%m/%d')%></span>
-                  <span class="thred-content"><%= thred.content %></span>
+                  <span class="thred-title"><%= thred.title%></span>
+                  <span class="date"><%= thred.created_at.strftime('%m/%d')%></span>
+                  <span class="thred-content"><%= simple_format(thred.content) %></span>
                 <% end %>
                 <% if user_signed_in? %>
                   <%= link_to '編集', edit_thred_path(thred) %>
