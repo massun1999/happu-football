@@ -1,0 +1,101 @@
+.btn-btn {
+  display: none;
+}
+
+.sp-mv{
+  display: none;
+}
+.sp_br{
+  display: none;
+}
+
+@media (max-width: 768px){
+  .logo{
+    height: 60px;
+  }
+  .top-menu{
+    align-items: flex-start;
+  }
+
+  /*ハンバーガーメニュー*/
+  .burger-btn{
+    display: block;      
+    width: 40px;      
+    height: 40px;      
+    position: relative; 
+    top: 10px; 
+    right: 10px;    
+    z-index: 3;
+    border:none;    
+  }    
+  .bar{      
+    width: 30px;      
+    height: 2px;        
+    display: block;      
+    position: absolute;      
+    left: 50%;      
+    transform: translateX(-50%);      
+    background-color: #fff;    
+  }    
+  .bar_top{   
+    top: 10px;
+  }
+  .bar_mid{    
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .bar_bottom{
+    bottom: 10px;
+  }
+  
+  .burger-btn.close .bar_top{      
+    transform: translate(-50%,10px) rotate(45deg);      
+    transition: transform .3s;    
+  }    
+  .burger-btn.close .bar_mid{      
+    opacity: 0;       
+    transition: opacity .3s;    
+  }    
+  .burger-btn.close .bar_bottom{      
+  transform: translate(-50%,-8px) rotate(-45deg);      
+  transition: transform .3s;    
+  }
+  
+  .nav-wrapper{      
+    display: none;     
+    width: 100vw;      
+    height: 100vh;      
+    position: fixed;      
+    top: 0;      
+    left: 0;       
+    z-index: 2;     
+  }     
+  .header-nav{        
+    width: 100%;        
+    height: 100%;        
+    background-color:#1B1310;        
+    z-index: 2;      
+  }     
+  .header-nav .nav-list{ 
+    width: 100%; 
+    flex-direction: column;      
+    display: block;        
+    position: absolute;        
+    top: 50%;        
+    left: 50%;        
+    transform: translate(-50%,-50%);        
+    text-align: center; 
+    margin: 0;     
+  }      
+  .header-nav.nav-item{
+    width: 100%;        
+    margin-right: 0;        
+    margin-bottom: 40px;      
+  }
+  body.noscroll{
+    overflow: hidden;
+  }
+}
+
+
+

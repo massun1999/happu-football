@@ -5,14 +5,24 @@
         <%= image_tag "happulogo.png", class: "logo-img"%>
       <% end %>
     </h1>
+      
     <div class="top-menu">
-      <ul class="menu-lists">
-        <li class="menu-list"><%= link_to '掲示版', threds_path %></li>
-        <li class="menu-list"><%= link_to '月間スケジュール', schedules_path%></li>
-        <li class="menu-list"><%= link_to 'コラム', columns_path %></li>
-        <% if user_signed_in? %>
-          <li class="menu-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
-        <% end %>
+      <div class="burger-btn"><!-- ③ハンバーガーボタン -->
+         <span class="bar bar_top"></span>
+         <span class="bar bar_mid"></span>
+         <span class="bar bar_bottom"></span>
+      </div>
+      <div class="nav-wrapper"><!-- ②ナビゲーションメニュー -->
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <li class="menu-list"><%= link_to '掲示版', threds_path %></li>
+            <li class="menu-list"><%= link_to '月間スケジュール', schedules_path%></li>
+            <li class="menu-list"><%= link_to 'コラム', columns_path %></li>
+            <% if user_signed_in? %>
+              <li class="menu-list"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete %></li>
+            <% end %>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>

@@ -53,4 +53,16 @@
   padding-left: 20px;
 }
 
+@media(max-width: 768px){
+  .show-main{
+    padding-top: 100px;
+  }
+  .show_title{
+    padding-top: 20px;
+    font-size: 22px;
+  }
+  .inner.show{
+    min-height: calc(100vh - 70px);
+  }
+}
 

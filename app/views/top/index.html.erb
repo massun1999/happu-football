@@ -10,6 +10,13 @@
         <li><%= image_tag "IMG_20881.jpg", class: "mv-img"%></li>
         <li><%= image_tag "IMG_20891.jpg", class: "mv-img"%></li>
       </ul>
+
+      <!--sp slider
+      <ul class="sp-mv">
+        <li><%= image_tag "mv_1_sp.jpg", class: "mv-img"%></li>
+        <li><%= image_tag "mv_3_sp.jpg", class: "mv-img"%></li>
+        <li><%= image_tag "mv_2_sp.jpg", class: "mv-img"%></li>
+      </ul>-->
     </div>
   </section>
 
@@ -51,7 +58,7 @@
             <p>スケジュールが登録されていません</p>
           <% else %>
             <h2>
-              <%= @schedule.year %><span>年度</span>
+              <%= @schedule.year %><span>年度</span><br class="sp_br">
               <%= @month.month %><span>月のスケジュール</span>
             </h2>
           <%end%>
