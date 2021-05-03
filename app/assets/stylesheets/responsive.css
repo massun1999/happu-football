@@ -95,6 +95,10 @@
   body.noscroll{
     overflow: hidden;
   }
+
+  .index-btn{
+    margin-top: 15px;
+  }
 }
 
 

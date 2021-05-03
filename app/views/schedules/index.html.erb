@@ -45,7 +45,7 @@
             <% @schedules.reverse_each do |schedule| %>
               <tr>
                 <td class="day"><%= schedule.date %></td>
-                <td class="day"><%= schedule.day %></td>
+                <td id="day" class="day"><%= schedule.day %></td>
                 <td class="event"><%= schedule.event %></td>
               </tr>
             <% end %>

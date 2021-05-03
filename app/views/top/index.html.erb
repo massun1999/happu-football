@@ -35,7 +35,7 @@
                 <%= link_to(thred_path(thred.id)) do %>
                   <span class="thred-title"><%= thred.title%></span>
                   <span class="date"><%= thred.created_at.strftime('%m/%d')%></span>
-                  <span class="thred-content"><%= simple_format(thred.content) %></span>
+                  <span class="thred-content"><%= simple_format(thred.content.truncate(15)) %></span>
                 <% end %>
                 <% if user_signed_in? %>
                   <%= link_to '編集', edit_thred_path(thred) %>
@@ -78,6 +78,345 @@
                 <td class="event"><%= schedule.event %></td>
               </tr>
             <% end %>
+          </tbody>
+        </table>
+        <!---6月スケジュール仮置き-->
+        <table>
+            <h2>
+              <span>2021年度</span><br class="sp_br">
+              <span>6月のスケジュール</span>
+            </h2>
+          </div>
+            <thead>
+              <tr>
+                <th class="days">日</th>
+                <th class="days">曜日</th>
+                <th class="event">行事</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="day">1</td>
+                <td class="day">火</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">2</td>
+                <td class="day">水</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">3</td>
+                <td class="day">木</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">4</td>
+                <td class="day">金</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">5</td>
+                <td class="day">土</td>
+                <td class="event">TR2・3年13-14 1年14-16 大羽根G 1年OFF</td>
+              </tr>
+              <tr>
+                <td class="day">6</td>
+                <td class="day">日</td>
+                <td class="event">リーグ戦VS富田9:00K　大羽根G　１年OFF</td>
+              </tr>
+              <tr>
+                <td class="day">7</td>
+                <td class="day">月</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">8</td>
+                <td class="day">火</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">9</td>
+                <td class="day">水</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">10</td>
+                <td class="day">木</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">11</td>
+                <td class="day">金</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">12</td>
+                <td class="day">土</td>
+                <td class="event">TR2・3年13-14　1年14-16　大羽根G</td>
+              </tr>
+              <tr>
+                <td class="day">13</td>
+                <td class="day">日</td>
+                <td class="event">リーグ戦VSアフェラルセ３rd9:00K　大羽根G　１年OFF</td>
+              </tr>
+              <tr>
+                <td class="day">14</td>
+                <td class="day">月</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">15</td>
+                <td class="day">火</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">16</td>
+                <td class="day">水</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">17</td>
+                <td class="day">木</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">18</td>
+                <td class="day">金</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">19</td>
+                <td class="day">土</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">20</td>
+                <td class="day">日</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">21</td>
+                <td class="day">月</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">22</td>
+                <td class="day">火</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">23</td>
+                <td class="day">水</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">24</td>
+                <td class="day">木</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">25</td>
+                <td class="day">金</td>
+                <td class="event">TR　大羽根G予定</td>
+              </tr>
+              <tr>
+                <td class="day">26</td>
+                <td class="day">土</td>
+                <td class="event">TR9-12　八風中学校</td>
+              </tr>
+              <tr>
+                <td class="day">27</td>
+                <td class="day">日</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">28</td>
+                <td class="day">月</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">29</td>
+                <td class="day">火</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">30</td>
+                <td class="day">水</td>
+                <td class="event">TR</td>
+              </tr>
+          </tbody>
+        </table>
+        <!---7月スケジュール仮置き-->
+        <table>
+            <h2>
+              <span>2021年度</span><br class="sp_br">
+              <span>7月のスケジュール</span>
+            </h2>
+          </div>
+            <thead>
+              <tr>
+                <th class="days">日</th>
+                <th class="days">曜日</th>
+                <th class="event">行事</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="day">1</td>
+                <td class="day">木</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">2</td>
+                <td class="day">金</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">3</td>
+                <td class="day">土</td>
+                <td class="event">TRM　vs白子中　8：00集合12：00解散　大羽根G</td>
+              </tr>
+              <tr>
+                <td class="day">4</td>
+                <td class="day">日</td>
+                <td class="event">TRM未定　12：00集合16：00解散　大羽根G</td>
+              </tr>
+              <tr>
+                <td class="day">5</td>
+                <td class="day">月</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">6</td>
+                <td class="day">火</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">7</td>
+                <td class="day">水</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">8</td>
+                <td class="day">木</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">9</td>
+                <td class="day">金</td>
+                <td class="event">TR　中体連壮行会</td>
+              </tr>
+              <tr>
+                <td class="day">10</td>
+                <td class="day">土</td>
+                <td class="event">中体連三泗地区予選</td>
+              </tr>
+              <tr>
+                <td class="day">11</td>
+                <td class="day">日</td>
+                <td class="event">中体連三泗地区予選</td>
+              </tr>
+              <tr>
+                <td class="day">12</td>
+                <td class="day">月</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">13</td>
+                <td class="day">火</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">14</td>
+                <td class="day">水</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">15</td>
+                <td class="day">木</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">16</td>
+                <td class="day">金</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">17</td>
+                <td class="day">土</td>
+                <td class="event">中体連三泗地区予選</td>
+              </tr>
+              <tr>
+                <td class="day">18</td>
+                <td class="day">日</td>
+                <td class="event">中体連三泗地区予選</td>
+              </tr>
+              <tr>
+                <td class="day">19</td>
+                <td class="day">月</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">20</td>
+                <td class="day">火</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">21</td>
+                <td class="day">水</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">22</td>
+                <td class="day">木</td>
+                <td class="event">TRM未定　8：00集合12：00解散　大羽根G</td>
+              </tr>
+              <tr>
+                <td class="day">23</td>
+                <td class="day">金</td>
+                <td class="event">TRM未定　12：00集合16：00解散　大羽根G</td>
+              </tr>
+              <tr>
+                <td class="day">24</td>
+                <td class="day">土</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">25</td>
+                <td class="day">日</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">26</td>
+                <td class="day">月</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">27</td>
+                <td class="day">火</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">28</td>
+                <td class="day">水</td>
+                <td class="event">OFF</td>
+              </tr>
+              <tr>
+                <td class="day">29</td>
+                <td class="day">木</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">30</td>
+                <td class="day">金</td>
+                <td class="event">TR</td>
+              </tr>
+              <tr>
+                <td class="day">31</td>
+                <td class="day">土</td>
+                <td class="event">TRM未定　8：00集合12：00解散　大羽根G</td>
+              </tr>
           </tbody>
         </table>  
         <% if user_signed_in? %>
