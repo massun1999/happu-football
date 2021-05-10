@@ -24,7 +24,7 @@
                 <%= link_to(column_path(column.id)) do %>
                   <span class="column-title"><%= column.title%></span>
                   <span class="date"><%= column.created_at.strftime('%m/%d')%></span>
-                  <span class="column-text"><%= simple_format(column.text) %></span>
+                  <span class="column-text"><%= simple_format(column.text.truncate(15)) %></span>
                 <% end %>
               </li>
             </ul>
